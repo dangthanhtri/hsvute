@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+    background-image:url(./);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 99%;
+    height: 55%;
+    justify-content: center;
+}
+.btn {
+  border: none;
+  color: white;
+  padding: 0px;
+  font-size: 11px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.chuthich {height: 40px; width: 15%;  border-radius: 10px; margin-right: 5%}
+.seat {
+    height: 27px;
+    width: 50px;
+    }
+.seatKM {
+    height: 27px;
+    width: 50px;
+    }    
+.loidi {  height: 27px;  width: 30px; background-color: #fff;}
+.loidido {  height: 27px;  width: 30px; background-color: #c0191f;}
+.cam {background-color: #ff9800; width: 50%} /* Orange */
+#avatar{
+          width: 230px;
+          height: 250px;
+      }
+.avatar2{
+    width: 150px;
+    height: 150px;
+      }
+
+@keyframes blinking {
+  0% {background-color: #4CAF50;}
+  12.5% {background-color: #fed09b;}
+  25% {background-color: #4CAF50;}
+  27.5% {background-color: #fed09b;}
+  50% {background-color: #4CAF50;}
+  62.5% {background-color: #fed09b;}
+  75% {background-color: #4CAF50;}
+  87.% {background-color: #fed09b;}
+  100% {background-color: #4CAF50;}
+}
+
+.screen
+{
+  width:100%;
+  height:50px;
+  background:#c0191f;
+  color:#fff;
+  text-align: center;
+  font-size:30px;
+  font-family:verdana;
+  justify-content: center;
+  padding-top: 12px;
+}
+.screen2
+{
+  width:100%;
+  height:27px;
+  background:#c0191f;
+  color:#fff;
+  text-align: center;
+  font-size:30px;
+  font-family:verdana;
+  justify-content: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 0%;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    margin-left: 80px;
+}
+
+#map-container {
+    display: flex;
+    align-items: center;
+}
+
+#legend-container {
+
+    margin-top: 20px;
+    text-align: center;
+    color: black;
+    font-family:verdana;
+}
+.rcorners-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0px;
+  width: 96.5%;
+  height: 15px;
+  border-radius: 25px;
+  border: 5px solid #c0191f;
+  padding: 20px;  
+  background: #fff;
+  margin-top: 10px;
+}
+.rcorners {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1%;
+  width: 17%;
+  border-radius: 25px;
+  border: 5px solid #c0191f;
+  padding: 20px;  
+  background: #ffffff;
+}
+#rcorners-seat {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  border-radius: 25px;
+  border: 5px solid #c0191f;
+  padding: 20px;  
+  background: #ffffff;
+}
+</style>
+</head>
+<body>
+<div class="content">
+    <div id="rcorners-seat">
+    <table>
+        <tr>
+            <td><button class="btn seatKM" style="background-color: #ffcb08">HĐ</button></td>
+            <td colspan="17"><div class="screen">KHU VỰC SÂN KHẤU HỘI TRƯỜNG</div></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08">LT</button></td>
+        </tr>
+        <tr style="border: 1px solid #000;">
+            <td><button class="btn seatKM" style="background-color: #ffffff">KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffffff">KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffffff">KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffffff" >KM</button></td>
+            <td><button class="btn loidi" ></button></td>
+            <td><button class="btn seatKM" style="background-color: #ffffff" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffffff">KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffffff">KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffffff" >KM</button></td>
+            <td><button class="btn loidido" ></button></td>
+            <td><button class="btn seatKM" style="background-color: #ffffff" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffffff" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffffff" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffffff" >KM</button></td>
+            <td><button class="btn loidi" ></button></td>
+            <td><button class="btn seatKM" style="background-color: #ffffff" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffffff" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffffff" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffffff" >KM</button></td>
+        </tr>
+                <tr style="border: 1px solid #000;">
+            <td><button class="btn seatKM" style="background-color: #c0191f">LĐ</button></td>
+            <td><button class="btn seatKM" style="background-color: #c0191f">LĐ</button></td>
+            <td><button class="btn seatKM" style="background-color: #c0191f">LĐ</button></td>
+            <td><button class="btn seatKM" style="background-color: #c0191f" >LĐ</button></td>
+            <td><button class="btn loidi" ></button></td>
+            <td><button class="btn seatKM" style="background-color: #c0191f" >LĐ</button></td>
+            <td><button class="btn seatKM" style="background-color: #c0191f">LĐ</button></td>
+            <td><button class="btn seatKM" style="background-color: #c0191f">LĐ</button></td>
+            <td><button class="btn seatKM" style="background-color: #c0191f" >LĐ</button></td>
+            <td><button class="btn loidido" ></button></td>
+            <td><button class="btn seatKM" style="background-color: #c0191f" >LĐ</button></td>
+            <td><button class="btn seatKM" style="background-color: #c0191f" >LĐ</button></td>
+            <td><button class="btn seatKM" style="background-color: #c0191f" >LĐ</button></td>
+            <td><button class="btn seatKM" style="background-color: #c0191f" >LĐ</button></td>
+            <td><button class="btn loidi" ></button></td>
+            <td><button class="btn seatKM" style="background-color: #c0191f" >LĐ</button></td>
+            <td><button class="btn seatKM" style="background-color: #c0191f" >LĐ</button></td>
+            <td><button class="btn seatKM" style="background-color: #c0191f" >LĐ</button></td>
+            <td><button class="btn seatKM" style="background-color: #c0191f" >LĐ</button></td>
+        </tr>
+        <tr style="border: 1px solid #000;">
+            <td><button class="btn seatKM" style="background-color: #ffcb08">KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08">KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08">KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn loidi" ></button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08">KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08">KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn loidido" ></button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn loidi" ></button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+        </tr>
+        <tr style="border: 1px solid #000;">
+            <td><button class="btn seatKM" style="background-color: #ffcb08">KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08">KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08">KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn loidi" ></button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08">KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08">KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn loidido" ></button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn loidi" ></button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+        </tr>
+        <tr style="border: 1px solid #000;">
+            <td><button class="btn seatKM" style="background-color: #ffcb08">KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08">KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08">KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn loidi" ></button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08">KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08">KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn loidido" ></button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn loidi" ></button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+            <td><button class="btn seatKM" style="background-color: #ffcb08" >KM</button></td>
+        </tr>
+        <tr>
+            <td><button class="btn seat" id='bt1'>DHX001</button></td>
+            <td><button class="btn seat" id='bt2'>DHX002</button></td>
+            <td><button class="btn seat" id='bt3'>DHX003</button></td>
+            <td><button class="btn seat" id='bt4'>DHX004</button></td>
+            <td><button class="btn loidi"  ></button></td>
+            <td><button class="btn seat" id='bt43'>DHX043</button></td>
+            <td><button class="btn seat" id='bt44'>DHX044</button></td>
+            <td><button class="btn seat" id='bt45'>DHX045</button></td>
+            <td><button class="btn seat" id='bt46'>DHX046</button></td>
+            <td><button class="btn loidido" ></button></td>
+            <td><button class="btn seat" id='bt99'>DHX099</button></td>
+            <td><button class="btn seat" id='bt100'>DHX100</button></td>
+            <td><button class="btn seat" id='bt101'>DHX101</button></td>
+            <td><button class="btn seat" id='bt102'>DHX102</button></td>
+            <td><button class="btn loidi" ></button></td>
+            <td><button class="btn seat" id='bt79'>DHX079</button></td>
+            <td><button class="btn seat" id='bt80'>DHX080</button></td>
+            <td><button class="btn seat" id='bt81'>DHX081</button></td>
+            <td><button class="btn seat" id='bt82'>DHX082</button></td>
+        </tr>
+        <tr>
+            <td><button class="btn seat" id='bt5'>DHX005</button></td>
+            <td><button class="btn seat" id='bt6'>DHX006</button></td>
+            <td><button class="btn seat" id='bt7'>DHX007</button></td>
+            <td><button class="btn seat" id='bt8'>DHX008</button></td>
+            <td><button class="btn loidi"  ></button></td>
+            <td><button class="btn seat" id='bt47'>DHX047</button></td>
+            <td><button class="btn seat" id='bt48'>DHX048</button></td>
+            <td><button class="btn seat" id='bt49'>DHX049</button></td>
+            <td><button class="btn seat" id='bt50'>DHX050</button></td>
+            <td><button class="btn loidido" ></button></td>
+            <td><button class="btn seat" id='bt103'>DHX103</button></td>
+            <td><button class="btn seat" id='bt104'>DHX104</button></td>
+            <td><button class="btn seat" id='bt105'>DHX105</button></td>
+            <td><button class="btn seat" id='bt106'>DHX106</button></td>
+            <td><button class="btn loidi" ></button></td>
+            <td><button class="btn seat" id='bt84'>DHX084</button></td>
+            <td><button class="btn seat" id='bt85'>DHX085</button></td>
+            <td><button class="btn seat" id='bt87'>DHX087</button></td>
+            <td><button class="btn seat" id='bt88'>DHX088</button></td>
+        </tr>
+        <tr>
+            <td><button class="btn seat" id='bt9'>DHX009</button></td>
+            <td><button class="btn seat" id='bt10'>DHX010</button></td>
+            <td><button class="btn seat" id='bt11'>DHX011</button></td>
+            <td><button class="btn seat" id='bt12'>DHX012</button></td>
+            <td><button class="btn loidi"  ></button></td>
+            <td><button class="btn seat" id='bt51'>DHX051</button></td>
+            <td><button class="btn seat" id='bt52'>DHX052</button></td>
+            <td><button class="btn seat" id='bt54'>DHX054</button></td>
+            <td><button class="btn seat" id='bt55'>DHX055</button></td>
+            <td><button class="btn loidido" ></button></td>
+            <td><button class="btn seat" id='bt107'>DHX107</button></td>
+            <td><button class="btn seat" id='bt108'>DHX108</button></td>
+            <td><button class="btn seat" id='bt109'>DHX109</button></td>
+            <td><button class="btn seat" id='bt110'>DHX110</button></td>
+            <td><button class="btn loidi" ></button></td>
+            <td><button class="btn seat" id='bt90'>DHX090</button></td>
+            <td><button class="btn seat" id='bt91'>DHX091</button></td>
+            <td><button class="btn seat" id='bt92'>DHX092</button></td>
+            <td><button class="btn seat" id='bt93'>DHX093</button></td>
+        </tr>
+        <tr>
+            <td><button class="btn seat" id='bt13'>DHX013</button></td>
+            <td><button class="btn seat" id='bt14'>DHX014</button></td>
+            <td><button class="btn seat" id='bt15'>DHX015</button></td>
+            <td><button class="btn seat" id='bt16'>DHX016</button></td>
+            <td><button class="btn loidi"  ></button></td>
+            <td><button class="btn seat" id='bt56'>DHX056</button></td>
+            <td><button class="btn seat" id='bt58'>DHX058</button></td>
+            <td><button class="btn seat" id='bt59'>DHX059</button></td>
+            <td><button class="btn seat" id='bt60'>DHX060</button></td>
+            <td><button class="btn loidido" ></button></td>
+            <td><button class="btn seat" id='bt111'>DHX111</button></td>
+            <td><button class="btn seat" id='bt112'>DHX112</button></td>
+            <td><button class="btn seat" id='bt113'>DHX113</button></td>
+            <td><button class="btn seat" id='bt114'>DHX114</button></td>
+            <td><button class="btn loidi" ></button></td>
+            <td><button class="btn seat" id='bt94'>DHX094</button></td>
+            <td><button class="btn seat" id='bt98'>DHX098</button></td>
+            <td><button class="btn seat" id='bt31'>DHX031</button></td>
+            <td><button class="btn seat" id='bt32'>DHX032</button></td>
+        </tr>
+        <tr>
+            <td><button class="btn seat" id='bt17'>DHX017</button></td>
+            <td><button class="btn seat" id='bt18'>DHX018</button></td>
+            <td><button class="btn seat" id='bt19'>DHX019</button></td>
+            <td><button class="btn seat" id='bt20'>DHX020</button></td>
+            <td><button class="btn loidi"  ></button></td>
+            <td><button class="btn seat" id='bt61'>DHX061</button></td>
+            <td><button class="btn seat" id='bt62'>DHX062</button></td>
+            <td><button class="btn seat" id='bt63'>DHX063</button></td>
+            <td><button class="btn seat" id='bt64'>DHX064</button></td>
+            <td><button class="btn loidido" ></button></td>
+            <td><button class="btn seat" id='bt115'>DHX115</button></td>
+            <td><button class="btn seat" id='bt116'>DHX116</button></td>
+            <td><button class="btn seat" id='bt117'>DHX117</button></td>
+            <td><button class="btn seat" id='bt118'>DHX118</button></td>
+            <td><button class="btn loidi" ></button></td>
+            <td><button class="btn seat" id='bt33'>DHX033</button></td>
+            <td><button class="btn seat" id='bt34'>DHX034</button></td>
+            <td><button class="btn seat" id='bt35'>DHX035</button></td>
+            <td><button class="btn seat" id='bt36'>DHX036</button></td>
+        </tr>
+        <tr>
+            <td><button class="btn seat" id='bt21'>DHX021</button></td>
+            <td><button class="btn seat" id='bt22'>DHX022</button></td>
+            <td><button class="btn seat" id='bt23'>DHX023</button></td>
+            <td><button class="btn seat" id='bt25'>DHX025</button></td>
+            <td><button class="btn loidi"  ></button></td>
+            <td><button class="btn seat" id='bt65'>DHX065</button></td>
+            <td><button class="btn seat" id='bt66'>DHX066</button></td>
+            <td><button class="btn seat" id='bt67'>DHX067</button></td>
+            <td><button class="btn seat" id='bt68'>DHX068</button></td>
+            <td><button class="btn loidido" ></button></td>
+            <td><button class="btn seat" id='bt119'>DHX119</button></td>
+            <td><button class="btn seat" id='bt120'>DHX120</button></td>
+            <td><button class="btn seat" id='bt122'>DHX122</button></td>
+            <td><button class="btn seat" id='bt123'>DHX123</button></td>
+            <td><button class="btn loidi" ></button></td>
+            <td><button class="btn seat" id='bt37'>DHX037</button></td>
+            <td><button class="btn seat" id='bt38'>DHX038</button></td>
+            <td><button class="btn seat" id='bt39'>DHX039</button></td>
+            <td><button class="btn seat" id='bt40'>DHX040</button></td>
+        </tr>
+        <tr>
+            <td><button class="btn seat" id='bt26'>DHX026</button></td>
+            <td><button class="btn seat" id='bt27'>DHX027</button></td>
+            <td><button class="btn seat" id='bt28'>DHX028</button></td>
+            <td><button class="btn seat" id='bt29'>DHX029</button></td>
+            <td><button class="btn loidi"  ></button></td>
+            <td><button class="btn seat" id='bt69'>DHX069</button></td>
+            <td><button class="btn seat" id='bt70'>DHX070</button></td>
+            <td><button class="btn seat" id='bt71'>DHX071</button></td>
+            <td><button class="btn seat" id='bt72'>DHX072</button></td>
+            <td><button class="btn loidido" ></button></td>
+            <td><button class="btn seat" id='bt124'>DHX124</button></td>
+            <td><button class="btn seat" id='bt125'>DHX125</button></td>
+            <td><button class="btn seat" id='bt126'>DHX126</button></td>
+            <td><button class="btn seat" id='bt127'>DHX127</button></td>
+            <td><button class="btn loidi" ></button></td>
+            <td><button class="btn seat" id='bt41'>DHX041</button></td>
+            <td><button class="btn seat" id='bt42'>DHX042</button></td>
+            <td><button class="btn seat" id='bt132'>DHX132</button></td>
+            <td><button class="btn seat" id='bt133'>DHX133</button></td>
+        </tr>
+        <tr>
+            <td><button class="btn seat" style="background-color: #fff"></button></td>
+            <td><button class="btn seat" id='bt77'>DHX077</button></td>
+            <td><button class="btn seat" id='bt78'>DHX078</button></td>
+            <td><button class="btn seat" id='bt30'>DHX030</button></td>
+            <td><button class="btn loidi"  ></button></td>
+            <td><button class="btn seat" id='bt76'>DHX076</button></td>
+            <td><button class="btn seat" id='bt75'>DHX075</button></td>
+            <td><button class="btn seat" id='bt74'>DHX074</button></td>
+            <td><button class="btn seat" id='bt73'>DHX073</button></td>
+            <td><button class="btn loidido" ></button></td>
+            <td><button class="btn seat" id='bt128'>DHX128</button></td>
+            <td><button class="btn seat" id='bt129'>DHX129</button></td>
+            <td><button class="btn seat" id='bt130'>DHX130</button></td>
+            <td><button class="btn seat" id='bt131'>DHX131</button></td>
+            <td><button class="btn loidi" ></button></td>
+            <td><button class="btn seat" id='bt97'>DHX097</button></td>
+            <td><button class="btn seat" id='bt86'>DHX086</button></td>
+            <td><button class="btn seat" id='bt134'>DHX134</button></td>
+            <td><button class="btn seat" id='bt135'>DHX135</button></td>
+        </tr>
+        <tr>
+            <td><button class="btn seat" style="background-color: #fff"></button></td>
+            <td><button class="btn seat" style="background-color: #fff"></button></td>
+            <td><button class="btn seat" style="background-color: #fff"></button></td>
+            <td><button class="btn seat" style="background-color: #fff"></button></td>
+            <td><button class="btn loidi"  ></button></td>
+            <td><button class="btn seat" id='bt121'>DHX121</button></td>
+            <td><button class="btn seat" id='bt57'>DHX057</button></td>
+            <td><button class="btn seat" id='bt24'>DHX024</button></td>
+            <td><button class="btn seat" id='bt53'>DHX053</button></td>
+            <td><button class="btn loidido" ></button></td>
+            <td><button class="btn seat" id='bt83'>DHX083</button></td>
+            <td><button class="btn seat" id='bt95'>DHX095</button></td>
+            <td><button class="btn seat" id='bt96'>DHX096</button></td>
+            <td><button class="btn seat" id='bt89'>DHX089</button></td>
+            <td><button class="btn loidi" ></button></td>
+            <td><button class="btn seat" style="background-color: #fff"></button></td>
+            <td><button class="btn seat" style="background-color: #fff"></button></td>
+            <td><button class="btn seat" style="background-color: #fff"></button></td>
+            <td><button class="btn seat" style="background-color: #fff"></button></td>
+        </tr>
+        <tr>
+            <td colspan="19"><div class="screen">THẢM ĐỎ</div></td>
+        </tr>
+
+
+    </table>      
+    </div>
+
+    <div class="rcorners">
+        <div id="legend-container">
+            <img class="avatar2"  src='./logo.png' />
+        </div>
+        <div id="legend-container">
+            <img id='avatar' src='' />
+        </div>
+    </div>
+</div>
+<div class="rcorners-banner">
+    <button class="btn chuthich" style="background-color:  #ffcb08; ">KHÁCH MỜI</button> 
+    <button class="btn chuthich" style="background-color: #fed09b; ">CHƯA ĐẾN</button> 
+    <button class="btn chuthich" style="background-color: #003399; ">ĐÃ ĐẾN</button> 
+    <button class="btn chuthich" style="background-color: #4CAF50; ">VỊ TRÍ CỦA BẠN</button> 
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script  src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-database.js"></script>
+        <script>
+            const firebaseConfig = {
+            apiKey: "AIzaSyC8kZN3Dnt3VBvqJvWwDfFZpTBPb7V6s5M",
+            authDomain: "checkin-system-4aa77.firebaseapp.com",
+            databaseURL: "https://checkin-system-4aa77.firebaseio.com",
+            projectId: "checkin-system-4aa77",
+            storageBucket: "checkin-system-4aa77.appspot.com",
+            messagingSenderId: "377899531790",
+            appId: "1:377899531790:web:96f27cf567ae0a15f8065f"
+            };
+
+        // Initialize Firebase  
+        firebase.initializeApp(firebaseConfig)
+        const db = firebase.database();
+        </script>
+        <script>
+            db.ref('/SEAT2/').on('value', (snapshot)=>{
+                let data = snapshot.val();
+                let Avatar = document.getElementById('avatar');
+                //let HoTen = document.getElementById('hoten');
+                //let ChiBo = document.getElementById('chibo');
+                //let Msdh = document.getElementById('MSDH');
+                //________________
+                let S1 = document.getElementById('bt1');
+                let S2 = document.getElementById('bt2');
+                let S3 = document.getElementById('bt3');
+                let S4 = document.getElementById('bt4');
+                let S5 = document.getElementById('bt5');
+                let S6 = document.getElementById('bt6');
+                let S7 = document.getElementById('bt7');
+                let S8 = document.getElementById('bt8');
+                let S9 = document.getElementById('bt9');
+                let S10 = document.getElementById('bt10');
+                let S11 = document.getElementById('bt11');
+                let S12 = document.getElementById('bt12');
+                let S13 = document.getElementById('bt13');
+                let S14 = document.getElementById('bt14');
+                let S15 = document.getElementById('bt15');
+                let S16 = document.getElementById('bt16');
+                let S17 = document.getElementById('bt17');
+                let S18 = document.getElementById('bt18');
+                let S19 = document.getElementById('bt19');
+                let S20 = document.getElementById('bt20');
+                let S21 = document.getElementById('bt21');
+                let S22 = document.getElementById('bt22');
+                let S23 = document.getElementById('bt23');
+                let S24 = document.getElementById('bt24');
+                let S25 = document.getElementById('bt25');
+                let S26 = document.getElementById('bt26');
+                let S27 = document.getElementById('bt27');
+                let S28 = document.getElementById('bt28');
+                let S29 = document.getElementById('bt29');
+                let S30 = document.getElementById('bt30');
+                let S31 = document.getElementById('bt31');
+                let S32 = document.getElementById('bt32');
+                let S33 = document.getElementById('bt33');
+                let S34 = document.getElementById('bt34');
+                let S35 = document.getElementById('bt35');
+                let S36 = document.getElementById('bt36');
+                let S37 = document.getElementById('bt37');
+                let S38 = document.getElementById('bt38');
+                let S39 = document.getElementById('bt39');
+                let S40 = document.getElementById('bt40');
+                let S41 = document.getElementById('bt41');
+                let S42 = document.getElementById('bt42');
+                let S43 = document.getElementById('bt43');
+                let S44 = document.getElementById('bt44');
+                let S45 = document.getElementById('bt45');
+                let S46 = document.getElementById('bt46');
+                let S47 = document.getElementById('bt47');
+                let S48 = document.getElementById('bt48');
+                let S49 = document.getElementById('bt49');
+                let S50 = document.getElementById('bt50');
+                let S51 = document.getElementById('bt51');
+                let S52 = document.getElementById('bt52');
+                let S53 = document.getElementById('bt53');
+                let S54 = document.getElementById('bt54');
+                let S55 = document.getElementById('bt55');
+                let S56 = document.getElementById('bt56');
+                let S57 = document.getElementById('bt57');
+                let S58 = document.getElementById('bt58');
+                let S59 = document.getElementById('bt59');
+                let S60 = document.getElementById('bt60');
+                let S61 = document.getElementById('bt61');
+                let S62 = document.getElementById('bt62');
+                let S63 = document.getElementById('bt63');
+                let S64 = document.getElementById('bt64');
+                let S65 = document.getElementById('bt65');
+                let S66 = document.getElementById('bt66');
+                let S67 = document.getElementById('bt67');
+                let S68 = document.getElementById('bt68');
+                let S69 = document.getElementById('bt69');
+                let S70 = document.getElementById('bt70');
+                let S71 = document.getElementById('bt71');
+                let S72 = document.getElementById('bt72');
+                let S73 = document.getElementById('bt73');
+                let S74 = document.getElementById('bt74');
+                let S75 = document.getElementById('bt75');
+                let S76 = document.getElementById('bt76');
+                let S77 = document.getElementById('bt77');
+                let S78 = document.getElementById('bt78');
+                let S79 = document.getElementById('bt79');
+                let S80 = document.getElementById('bt80');
+                let S81 = document.getElementById('bt81');
+                let S82 = document.getElementById('bt82');
+                let S83 = document.getElementById('bt83');
+                let S84 = document.getElementById('bt84');
+                let S85 = document.getElementById('bt85');
+                let S86 = document.getElementById('bt86');
+                let S87 = document.getElementById('bt87');
+                let S88 = document.getElementById('bt88');
+                let S89 = document.getElementById('bt89');
+                let S90 = document.getElementById('bt90');
+                let S91 = document.getElementById('bt91');
+                let S92 = document.getElementById('bt92');
+                let S93 = document.getElementById('bt93');
+                let S94 = document.getElementById('bt94');
+                let S95 = document.getElementById('bt95');
+                let S96 = document.getElementById('bt96');
+                let S97 = document.getElementById('bt97');
+                let S98 = document.getElementById('bt98');
+                let S99 = document.getElementById('bt99');
+                let S100 = document.getElementById('bt100');
+                let S101 = document.getElementById('bt101');
+                let S102 = document.getElementById('bt102');
+                let S103 = document.getElementById('bt103');
+                let S104 = document.getElementById('bt104');
+                let S105 = document.getElementById('bt105');
+                let S106 = document.getElementById('bt106');
+                let S107 = document.getElementById('bt107');
+                let S108 = document.getElementById('bt108');
+                let S109 = document.getElementById('bt109');
+                let S110 = document.getElementById('bt110');
+                let S111 = document.getElementById('bt111');
+                let S112 = document.getElementById('bt112');
+                let S113 = document.getElementById('bt113');
+                let S114 = document.getElementById('bt114');
+                let S115 = document.getElementById('bt115');
+                let S116 = document.getElementById('bt116');
+                let S117 = document.getElementById('bt117');
+                let S118 = document.getElementById('bt118');
+                let S119 = document.getElementById('bt119');
+                let S120 = document.getElementById('bt120');
+                let S121 = document.getElementById('bt121');
+                let S122 = document.getElementById('bt122');
+                let S123 = document.getElementById('bt123');
+                let S124 = document.getElementById('bt124');
+                let S125 = document.getElementById('bt125');
+                let S126 = document.getElementById('bt126');
+                let S127 = document.getElementById('bt127');
+                let S128 = document.getElementById('bt128');
+                let S129 = document.getElementById('bt129');
+                let S130 = document.getElementById('bt130');
+                let S131 = document.getElementById('bt131');
+                let S132 = document.getElementById('bt132');
+                let S133 = document.getElementById('bt133');
+                let S134 = document.getElementById('bt134');
+                let S135 = document.getElementById('bt135');
+
+
+
+                //dtbtn1 = data.TEST;
+                //console.log(dtbtn1);
+                //HoTen.innerText = data.Hoten;
+                //ChiBo.innerText = data.Chibo;
+                //Msdh.innerText = data.ID;
+                Avatar.src = data.PIC;
+                
+
+                S1.style.backgroundColor = data.s1;
+                S2.style.backgroundColor = data.s2;
+                S3.style.backgroundColor = data.s3;
+                S4.style.backgroundColor = data.s4;
+                S5.style.backgroundColor = data.s5;
+                S6.style.backgroundColor = data.s6;
+                S7.style.backgroundColor = data.s7;
+                S8.style.backgroundColor = data.s8;
+                S9.style.backgroundColor = data.s9;
+                S10.style.backgroundColor = data.s10;
+                S11.style.backgroundColor = data.s11;
+                S12.style.backgroundColor = data.s12;
+                S13.style.backgroundColor = data.s13;
+                S14.style.backgroundColor = data.s14;
+                S15.style.backgroundColor = data.s15;
+                S16.style.backgroundColor = data.s16;
+                S17.style.backgroundColor = data.s17;
+                S18.style.backgroundColor = data.s18;
+                S19.style.backgroundColor = data.s19;
+                S20.style.backgroundColor = data.s20;
+                S21.style.backgroundColor = data.s21;
+                S22.style.backgroundColor = data.s22;
+                S23.style.backgroundColor = data.s23;
+                S24.style.backgroundColor = data.s24;
+                S25.style.backgroundColor = data.s25;
+                S26.style.backgroundColor = data.s26;
+                S27.style.backgroundColor = data.s27;
+                S28.style.backgroundColor = data.s28;
+                S29.style.backgroundColor = data.s29;
+                S30.style.backgroundColor = data.s30;
+                S31.style.backgroundColor = data.s31;
+                S32.style.backgroundColor = data.s32;
+                S33.style.backgroundColor = data.s33;
+                S34.style.backgroundColor = data.s34;
+                S35.style.backgroundColor = data.s35;
+                S36.style.backgroundColor = data.s36;
+                S37.style.backgroundColor = data.s37;
+                S38.style.backgroundColor = data.s38;
+                S39.style.backgroundColor = data.s39;
+                S40.style.backgroundColor = data.s40;
+                S41.style.backgroundColor = data.s41;
+                S42.style.backgroundColor = data.s42;
+                S43.style.backgroundColor = data.s43;
+                S44.style.backgroundColor = data.s44;
+                S45.style.backgroundColor = data.s45;
+                S46.style.backgroundColor = data.s46;
+                S47.style.backgroundColor = data.s47;
+                S48.style.backgroundColor = data.s48;
+                S49.style.backgroundColor = data.s49;
+                S50.style.backgroundColor = data.s50;
+                S51.style.backgroundColor = data.s51;
+                S52.style.backgroundColor = data.s52;
+                S53.style.backgroundColor = data.s53;
+                S54.style.backgroundColor = data.s54;
+                S55.style.backgroundColor = data.s55;
+                S56.style.backgroundColor = data.s56;
+                S57.style.backgroundColor = data.s57;
+                S58.style.backgroundColor = data.s58;
+                S59.style.backgroundColor = data.s59;
+                S60.style.backgroundColor = data.s60;
+                S61.style.backgroundColor = data.s61;
+                S62.style.backgroundColor = data.s62;
+                S63.style.backgroundColor = data.s63;
+                S64.style.backgroundColor = data.s64;
+                S65.style.backgroundColor = data.s65;
+                S66.style.backgroundColor = data.s66;
+                S67.style.backgroundColor = data.s67;
+                S68.style.backgroundColor = data.s68;
+                S69.style.backgroundColor = data.s69;
+                S70.style.backgroundColor = data.s70;
+                S71.style.backgroundColor = data.s71;
+                S72.style.backgroundColor = data.s72;
+                S73.style.backgroundColor = data.s73;
+                S74.style.backgroundColor = data.s74;
+                S75.style.backgroundColor = data.s75;
+                S76.style.backgroundColor = data.s76;
+                S77.style.backgroundColor = data.s77;
+                S78.style.backgroundColor = data.s78;
+                S79.style.backgroundColor = data.s79;
+                S80.style.backgroundColor = data.s80;
+                S81.style.backgroundColor = data.s81;
+                S82.style.backgroundColor = data.s82;
+                S83.style.backgroundColor = data.s83;
+                S84.style.backgroundColor = data.s84;
+                S85.style.backgroundColor = data.s85;
+                S86.style.backgroundColor = data.s86;
+                S87.style.backgroundColor = data.s87;
+                S88.style.backgroundColor = data.s88;
+                S89.style.backgroundColor = data.s89;
+                S90.style.backgroundColor = data.s90;
+                S91.style.backgroundColor = data.s91;
+                S92.style.backgroundColor = data.s92;
+                S93.style.backgroundColor = data.s93;
+                S94.style.backgroundColor = data.s94;
+                S95.style.backgroundColor = data.s95;
+                S96.style.backgroundColor = data.s96;
+                S97.style.backgroundColor = data.s97;
+                S98.style.backgroundColor = data.s98;
+                S99.style.backgroundColor = data.s99;
+                S100.style.backgroundColor = data.s100;
+                S101.style.backgroundColor = data.s101;
+                S102.style.backgroundColor = data.s102;
+                S103.style.backgroundColor = data.s103;
+                S104.style.backgroundColor = data.s104;
+                S105.style.backgroundColor = data.s105;
+                S106.style.backgroundColor = data.s106;
+                S107.style.backgroundColor = data.s107;
+                S108.style.backgroundColor = data.s108;
+                S109.style.backgroundColor = data.s109;
+                S110.style.backgroundColor = data.s110;
+                S111.style.backgroundColor = data.s111;
+                S112.style.backgroundColor = data.s112;
+                S113.style.backgroundColor = data.s113;
+                S114.style.backgroundColor = data.s114;
+                S115.style.backgroundColor = data.s115;
+                S116.style.backgroundColor = data.s116;
+                S117.style.backgroundColor = data.s117;
+                S118.style.backgroundColor = data.s118;
+                S119.style.backgroundColor = data.s119;
+                S120.style.backgroundColor = data.s120;
+                S121.style.backgroundColor = data.s121;
+                S122.style.backgroundColor = data.s122;
+                S123.style.backgroundColor = data.s123;
+                S124.style.backgroundColor = data.s124;
+                S125.style.backgroundColor = data.s125;
+                S126.style.backgroundColor = data.s126;
+                S127.style.backgroundColor = data.s127;
+                S128.style.backgroundColor = data.s128;
+                S129.style.backgroundColor = data.s129;
+                S130.style.backgroundColor = data.s130;
+                S131.style.backgroundColor = data.s131;
+                S132.style.backgroundColor = data.s132;
+                S133.style.backgroundColor = data.s133;
+                S134.style.backgroundColor = data.s134;
+                S135.style.backgroundColor = data.s135;
+
+                
+                $(document).ready(function(){
+                    if (data.s1 == "#003399") {
+                    console.log("ok");
+                    $("#bt1").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s2 == "#003399") {
+                    console.log("ok");
+                    $("#bt2").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s3 == "#003399") {
+                    console.log("ok");
+                    $("#bt3").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s4 == "#003399") {
+                    console.log("ok");
+                    $("#bt4").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s5 == "#003399") {
+                    console.log("ok");
+                    $("#bt5").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s6 == "#003399") {
+                    console.log("ok");
+                    $("#bt6").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s7 == "#003399") {
+                    console.log("ok");
+                    $("#bt7").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s8 == "#003399") {
+                    console.log("ok");
+                    $("#bt8").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s9 == "#003399") {
+                    console.log("ok");
+                    $("#bt9").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s10 == "#003399") {
+                    console.log("ok");
+                    $("#bt10").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                //________________
+                $(document).ready(function(){
+                    if (data.s11 == "#003399") {
+                    console.log("ok");
+                    $("#bt11").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s12 == "#003399") {
+                    console.log("ok");
+                    $("#bt12").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s13 == "#003399") {
+                    console.log("ok");
+                    $("#bt13").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s14 == "#003399") {
+                    console.log("ok");
+                    $("#bt14").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s15 == "#003399") {
+                    console.log("ok");
+                    $("#bt15").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s16 == "#003399") {
+                    console.log("ok");
+                    $("#bt16").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s17 == "#003399") {
+                    console.log("ok");
+                    $("#bt17").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s18 == "#003399") {
+                    console.log("ok");
+                    $("#bt18").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s19 == "#003399") {
+                    console.log("ok");
+                    $("#bt19").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s20 == "#003399") {
+                    console.log("ok");
+                    $("#bt20").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                //__________________
+                $(document).ready(function(){
+                    if (data.s21 == "#003399") {
+                    console.log("ok");
+                    $("#bt21").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s22 == "#003399") {
+                    console.log("ok");
+                    $("#bt22").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s23 == "#003399") {
+                    console.log("ok");
+                    $("#bt23").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s24 == "#003399") {
+                    console.log("ok");
+                    $("#bt24").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s25 == "#003399") {
+                    console.log("ok");
+                    $("#bt25").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s26 == "#003399") {
+                    console.log("ok");
+                    $("#bt26").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s27 == "#003399") {
+                    console.log("ok");
+                    $("#bt27").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s28 == "#003399") {
+                    console.log("ok");
+                    $("#bt28").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s29 == "#003399") {
+                    console.log("ok");
+                    $("#bt29").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s30 == "#003399") {
+                    console.log("ok");
+                    $("#bt30").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                //________________
+                $(document).ready(function(){
+                    if (data.s31 == "#003399") {
+                    console.log("ok");
+                    $("#bt31").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s32 == "#003399") {
+                    console.log("ok");
+                    $("#bt32").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s33 == "#003399") {
+                    console.log("ok");
+                    $("#bt33").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s34 == "#003399") {
+                    console.log("ok");
+                    $("#bt34").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s35 == "#003399") {
+                    console.log("ok");
+                    $("#bt35").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s36 == "#003399") {
+                    console.log("ok");
+                    $("#bt36").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s37 == "#003399") {
+                    console.log("ok");
+                    $("#bt37").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s38 == "#003399") {
+                    console.log("ok");
+                    $("#bt38").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s39 == "#003399") {
+                    console.log("ok");
+                    $("#bt39").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s40 == "#003399") {
+                    console.log("ok");
+                    $("#bt40").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                //________________
+
+                 $(document).ready(function(){
+                    if (data.s41 == "#003399") {
+                    console.log("ok");
+                    $("#bt41").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s42 == "#003399") {
+                    console.log("ok");
+                    $("#bt42").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s43 == "#003399") {
+                    console.log("ok");
+                    $("#bt43").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s44 == "#003399") {
+                    console.log("ok");
+                    $("#bt44").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s45 == "#003399") {
+                    console.log("ok");
+                    $("#bt45").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s46 == "#003399") {
+                    console.log("ok");
+                    $("#bt46").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s47 == "#003399") {
+                    console.log("ok");
+                    $("#bt47").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s48 == "#003399") {
+                    console.log("ok");
+                    $("#bt48").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s49 == "#003399") {
+                    console.log("ok");
+                    $("#bt49").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s50 == "#003399") {
+                    console.log("ok");
+                    $("#bt50").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                //________________
+                 $(document).ready(function(){
+                    if (data.s51 == "#003399") {
+                    console.log("ok");
+                    $("#bt51").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s52 == "#003399") {
+                    console.log("ok");
+                    $("#bt52").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s53 == "#003399") {
+                    console.log("ok");
+                    $("#bt53").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s54 == "#003399") {
+                    console.log("ok");
+                    $("#bt54").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s55 == "#003399") {
+                    console.log("ok");
+                    $("#bt55").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s56 == "#003399") {
+                    console.log("ok");
+                    $("#bt56").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s57 == "#003399") {
+                    console.log("ok");
+                    $("#bt57").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s58 == "#003399") {
+                    console.log("ok");
+                    $("#bt58").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s59 == "#003399") {
+                    console.log("ok");
+                    $("#bt59").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s60 == "#003399") {
+                    console.log("ok");
+                    $("#bt60").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                //________________
+                 $(document).ready(function(){
+                    if (data.s61 == "#003399") {
+                    console.log("ok");
+                    $("#bt61").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s62 == "#003399") {
+                    console.log("ok");
+                    $("#bt62").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s63 == "#003399") {
+                    console.log("ok");
+                    $("#bt63").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s64 == "#003399") {
+                    console.log("ok");
+                    $("#bt64").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s65 == "#003399") {
+                    console.log("ok");
+                    $("#bt65").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s66 == "#003399") {
+                    console.log("ok");
+                    $("#bt66").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s67 == "#003399") {
+                    console.log("ok");
+                    $("#bt67").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s68 == "#003399") {
+                    console.log("ok");
+                    $("#bt68").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s69 == "#003399") {
+                    console.log("ok");
+                    $("#bt69").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s70 == "#003399") {
+                    console.log("ok");
+                    $("#bt70").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                //________________
+                 $(document).ready(function(){
+                    if (data.s71 == "#003399") {
+                    console.log("ok");
+                    $("#bt71").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s72 == "#003399") {
+                    console.log("ok");
+                    $("#bt72").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s73 == "#003399") {
+                    console.log("ok");
+                    $("#bt73").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s74 == "#003399") {
+                    console.log("ok");
+                    $("#bt74").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s75 == "#003399") {
+                    console.log("ok");
+                    $("#bt75").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s76 == "#003399") {
+                    console.log("ok");
+                    $("#bt76").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s77 == "#003399") {
+                    console.log("ok");
+                    $("#bt77").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s78 == "#003399") {
+                    console.log("ok");
+                    $("#bt78").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s79 == "#003399") {
+                    console.log("ok");
+                    $("#bt79").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s80 == "#003399") {
+                    console.log("ok");
+                    $("#bt80").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                //________________
+                 $(document).ready(function(){
+                    if (data.s81 == "#003399") {
+                    console.log("ok");
+                    $("#bt81").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s82 == "#003399") {
+                    console.log("ok");
+                    $("#bt82").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s83 == "#003399") {
+                    console.log("ok");
+                    $("#bt83").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s84 == "#003399") {
+                    console.log("ok");
+                    $("#bt84").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s85 == "#003399") {
+                    console.log("ok");
+                    $("#bt85").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s86 == "#003399") {
+                    console.log("ok");
+                    $("#bt86").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s87 == "#003399") {
+                    console.log("ok");
+                    $("#bt87").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s88 == "#003399") {
+                    console.log("ok");
+                    $("#bt88").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s89 == "#003399") {
+                    console.log("ok");
+                    $("#bt89").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s90 == "#003399") {
+                    console.log("ok");
+                    $("#bt90").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                //________________
+                 $(document).ready(function(){
+                    if (data.s91 == "#003399") {
+                    console.log("ok");
+                    $("#bt91").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s92 == "#003399") {
+                    console.log("ok");
+                    $("#bt92").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s93 == "#003399") {
+                    console.log("ok");
+                    $("#bt93").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s94 == "#003399") {
+                    console.log("ok");
+                    $("#bt94").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s95 == "#003399") {
+                    console.log("ok");
+                    $("#bt95").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s96 == "#003399") {
+                    console.log("ok");
+                    $("#bt96").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s97 == "#003399") {
+                    console.log("ok");
+                    $("#bt97").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s98 == "#003399") {
+                    console.log("ok");
+                    $("#bt98").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                //Bỏ 99
+                $(document).ready(function(){
+                    if (data.s100 == "#003399") {
+                    console.log("ok");
+                    $("#bt100").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s101 == "#003399") {
+                    console.log("ok");
+                    $("#bt101").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s102 == "#003399") {
+                    console.log("ok");
+                    $("#bt102").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s103 == "#003399") {
+                    console.log("ok");
+                    $("#bt103").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s104 == "#003399") {
+                    console.log("ok");
+                    $("#bt104").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s105 == "#003399") {
+                    console.log("ok");
+                    $("#bt105").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s106 == "#003399") {
+                    console.log("ok");
+                    $("#bt106").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s107 == "#003399") {
+                    console.log("ok");
+                    $("#bt107").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s108 == "#003399") {
+                    console.log("ok");
+                    $("#bt108").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s109 == "#003399") {
+                    console.log("ok");
+                    $("#bt109").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s110 == "#003399") {
+                    console.log("ok");
+                    $("#bt110").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s111 == "#003399") {
+                    console.log("ok");
+                    $("#bt111").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s112 == "#003399") {
+                    console.log("ok");
+                    $("#bt112").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s113 == "#003399") {
+                    console.log("ok");
+                    $("#bt113").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s114 == "#003399") {
+                    console.log("ok");
+                    $("#bt114").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s115 == "#003399") {
+                    console.log("ok");
+                    $("#bt115").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s116 == "#003399") {
+                    console.log("ok");
+                    $("#bt116").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s117 == "#003399") {
+                    console.log("ok");
+                    $("#bt117").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s118 == "#003399") {
+                    console.log("ok");
+                    $("#bt118").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s119 == "#003399") {
+                    console.log("ok");
+                    $("#bt119").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s120 == "#003399") {
+                    console.log("ok");
+                    $("#bt120").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s121 == "#003399") {
+                    console.log("ok");
+                    $("#bt121").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s122 == "#003399") {
+                    console.log("ok");
+                    $("#bt122").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s123 == "#003399") {
+                    console.log("ok");
+                    $("#bt123").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s124 == "#003399") {
+                    console.log("ok");
+                    $("#bt124").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s125 == "#003399") {
+                    console.log("ok");
+                    $("#bt125").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s126 == "#003399") {
+                    console.log("ok");
+                    $("#bt126").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s127 == "#003399") {
+                    console.log("ok");
+                    $("#bt127").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s128 == "#003399") {
+                    console.log("ok");
+                    $("#bt128").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s129 == "#003399") {
+                    console.log("ok");
+                    $("#bt129").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s130 == "#003399") {
+                    console.log("ok");
+                    $("#bt130").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s131 == "#003399") {
+                    console.log("ok");
+                    $("#bt131").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s132 == "#003399") {
+                    console.log("ok");
+                    $("#bt132").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s133 == "#003399") {
+                    console.log("ok");
+                    $("#bt133").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s134 == "#003399") {
+                    console.log("ok");
+                    $("#bt134").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                $(document).ready(function(){
+                    if (data.s135 == "#003399") {
+                    console.log("ok");
+                    $("#bt135").css({ "animation-name": "blinking", "animation-duration": "5s"});
+                }
+                });
+                //________________
+            })
+    
+    </script>
+</body>
+</html>
